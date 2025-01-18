@@ -49,7 +49,7 @@ metadata:
   name: backend-service
   namespace: expense-nm
   labels:
-    app: bckend
+    app: backend
     module: backend
     project: expense
 spec:
