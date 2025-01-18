@@ -37,6 +37,7 @@ metadata:
     module: backend
     project: expense
 spec:
+  ports:
   - name: backend
     protocol: TCP
     port: 8080
