@@ -1,3 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: expense-backend-configmap
+  namespace: expense-nm
+  labels: 
+    app: bckend
+    module: backend
+    project: expense
+data:
+  DB_HOST: mysql    
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -26,6 +38,10 @@ spec:
         image: naresh34/backend:v1
         ports:
         - containerPort: 8080
+      envFrom:
+      - ConfigMapRef:
+          name: expense-backend-configmap
+
 ---
 apiVersion: v1
 kind: Service
