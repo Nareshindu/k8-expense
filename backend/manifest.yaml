@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: expense-nm
+  labels:
+    app: bckend
+    module: backend
+    project: expense
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bckend
+      module: backend
+      project: expense
+  template:
+    metadata:
+      labels:
+        app: bckend
+        module: backend
+        project: expense
+    spec:
+      containers:
+      - name: backend
+        image: naresh34/backend:v1
+        ports:
+        - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend-service
+  name: expense-nm
+  labels:
+    app: bckend
+    module: backend
+    project: expense
+spec:
+  - name: backend
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
