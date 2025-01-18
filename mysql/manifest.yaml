@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: mysql
-        image: naresh34/mysql:v1
+        image: joindevops/mysql:v1
         ports:
         - containerPort: 3306
 ---
