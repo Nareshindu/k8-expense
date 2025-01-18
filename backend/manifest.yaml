@@ -38,9 +38,9 @@ spec:
         image: naresh34/backend:v1
         ports:
         - containerPort: 8080
-      envFrom:
-      - ConfigMapRef:
-          name: expense-backend-configmap
+        envFrom:
+        - ConfigMapRef:
+            name: expense-backend-configmap
 
 ---
 apiVersion: v1
