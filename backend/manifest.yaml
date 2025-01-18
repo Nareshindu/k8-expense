@@ -8,7 +8,7 @@ metadata:
     module: backend
     project: expense
 data:
-  DB_HOST: mysql    
+  DB_HOST: naidu1    
 ---
 apiVersion: apps/v1
 kind: Deployment
