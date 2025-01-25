@@ -1,14 +1,14 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: expense-backend-configmap
+  name: expense-frontend-configmap
   namespace: expense-nm
   labels: 
-    app: backend
-    module: backend
+    app: frontend
+    module: frontend
     project: expense
 data:
-  DB_HOST: mysql   
+  
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -16,45 +16,45 @@ metadata:
   name: backend
   namespace: expense-nm
   labels:
-    app: backend
-    module: backend
+    app: frontend
+    module: frontend
     project: expense
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend
-      module: backend
+      app: frontend
+      module: frontend
       project: expense
   template:
     metadata:
       labels:
-        app: backend
-        module: backend
+        app: frontend
+        module: frontend
         project: expense
     spec:
       containers:
-      - name: backend
-        image: joindevops/backend:v1
+      - name: frontend
+        image: joindevops/frontend:v1
         ports:
         - containerPort: 8080
         envFrom:
         - configMapRef:
-            name: expense-backend-configmap
+            name: expense-frontend-configmap
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend-service
+  name: frontend-service
   namespace: expense-nm
   labels:
-    app: backend
-    module: backend
+    app: frontend
+    module: frontend
     project: expense
 spec:
   ports:
-  - name: backend
+  - name: frontend
     protocol: TCP
     port: 8080
     targetPort: 8080
