@@ -8,7 +8,7 @@ metadata:
     module: backend
     project: expense
 data:
-  DB_HOST: "mysql"   
+  DB_HOST: mysql 
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -51,6 +51,10 @@ metadata:
     module: backend
     project: expense
 spec:
+  selector: 
+    app: backend
+    module: backend
+    project: expense
   ports:
   - name: backend
     protocol: TCP
