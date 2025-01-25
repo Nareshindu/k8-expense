@@ -36,8 +36,6 @@ spec:
       containers:
       - name: backend
         image: joindevops/backend:v1
-        ports:
-        - containerPort: 8080
         envFrom:
         - configMapRef:
             name: expense-backend-configmap
