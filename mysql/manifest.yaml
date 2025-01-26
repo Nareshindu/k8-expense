@@ -35,6 +35,7 @@ metadata:
     module: db
     project: expense
 spec:
+  selector: mysql
   ports:
   - name: mysql-svc
     protocol: TCP
