@@ -35,7 +35,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: joindevops/java:v1
+        image: naresh34/java:v1
         envFrom:
         - configMapRef:
             name: expense-backend-configmap
