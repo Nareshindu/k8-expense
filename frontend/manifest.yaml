@@ -9,6 +9,7 @@ metadata:
     project: expense
 data:
   
+  
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -37,7 +38,7 @@ spec:
       - name: frontend
         image: joindevops/frontend:v1
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         envFrom:
         - configMapRef:
             name: expense-frontend-configmap
